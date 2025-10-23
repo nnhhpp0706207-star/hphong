@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mua Bán Điện Thoại - Chuyên Nghiệp</title>
+    <style>
+        /* ---------------- RESET CSS ---------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        /* ---------------- HEADER ---------------- */
+        header {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .logo img {
+            max-width: 140px;
+        }
+
+        .menu ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .menu > ul > li {
+            position: relative;
+            margin: 0 20px;
+        }
+
+        .menu > ul > li > a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 15px;
+            display: block;
+        }
+
+        .menu > ul > li > a:hover {
+            background-color: #f7a600;
+            border-radius: 5px;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            padding: 10px;
+            top: 100%;
+            left: 0;
+            min-width: 180px;
+            border-radius: 5px;
+        }
+
+        .submenu li {
+            display: block;
+        }
+
+        .submenu a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 8px 15px;
+            border-radius: 3px;
+        }
+
+        .submenu a:hover {
+            background-color: #f7a600;
+        }
+
+        .menu > ul > li:hover .submenu {
+            display: block;
+        }
+
+        /* ---------------- SEARCH ---------------- */
+        .search {
+            display: flex;
+            align-items: center;
+        }
+
+        .search input {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+        }
+
+        .search button {
+            padding: 8px 15px;
+            border: none;
+            background-color: #f7a600;
+            color: white;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .search button:hover {
+            background-color: #ffbb33;
+        }
+
+        /* ---------------- HERO ---------------- */
+        .hero {
+            background: url('https://images.unsplash.com/photo-1510557880182-3d4d3cba35c1?auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+        }
+
+        .btn-primary {
+            background-color: #f7a600;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #ffbb33;
+        }
+
+        /* ---------------- PRODUCT LIST ---------------- */
+        .product-list {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .product-list h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #222;
+        }
+
+        .product-grid {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .product {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            width: 250px;
+            transition: 0.3s;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .product img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .product h3 {
+            margin: 15px 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .price {
+            color: #f7a600;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .btn-buy {
+            background-color: #f7a600;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-buy:hover {
+            background-color: #ffbb33;
+        }
+
+        /* ---------------- FOOTER ---------------- */
+        footer {
+            background-color: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 25px 10px;
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 5px;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="https://via.placeholder.com/140x50?text=ShopPhone" alt="Logo">
+        </div>
+
+        <nav class="menu">
+            <ul>
+                <li><a href="#">Mua Điện Thoại</a>
+                    <ul class="submenu">
+                        <li><a href="#">Loại Điện Thoại</a>
+                            <ul class="submenu">
+                                <li><a href="#">Smartphone</a></li>
+                                <li><a href="#">Feature Phone</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Hãng Sản Xuất</a>
+                            <ul class="submenu">
+                                <li><a href="#">Apple</a></li>
+                                <li><a href="#">Samsung</a></li>
+                                <li><a href="#">Xiaomi</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Tình Trạng</a>
+                            <ul class="submenu">
+                                <li><a href="#">Mới</a></li>
+                                <li><a href="#">Cũ</a></li>
+                                <li><a href="#">Refurbished</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#">Bán Điện Thoại</a>
+                    <ul class="submenu">
+                        <li><a href="#">Đăng Bán</a></li>
+                        <li><a href="#">Quản Lý Đơn Hàng</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="search">
+            <input type="text" placeholder="Tìm kiếm sản phẩm...">
+            <button>Tìm</button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Chào Mừng Đến Với Shop Điện Thoại</h1>
+        <p>Mua điện thoại chính hãng, giá tốt, giao hàng nhanh chóng!</p>
+        <a href="#" class="btn-primary">Khám Phá Ngay</a>
+    </section>
+
+    <section class="product-list">
+        <h2>Sản Phẩm Nổi Bật</h2>
+        <div class="product-grid">
+            <div class="product">
+                <img src="https://cdn.tgdd.vn/Products/Images/42/303829/iphone-15-pro-max-blue-thumb-600x600.jpg" alt="iPhone 15 Pro Max">
+                <h3>iPhone 15 Pro Max</h3>
+                <p class="price">33.000.000 VND</p>
+                <button class="btn-buy">Mua Ngay</button>
+            </div>
+            <div class="product">
+                <img src="https://cdn.tgdd.vn/Products/Images/42/317590/samsung-galaxy-s24-ultra-grey-thumb-600x600.jpg" alt="Samsung Galaxy S24 Ultra">
+                <h3>Samsung Galaxy S24 Ultra</h3>
+                <p class="price">28.000.000 VND</p>
+                <button class="btn-buy">Mua Ngay</button>
+            </div>
+            <div class="product">
+                <img src="https://cdn.tgdd.vn/Products/Images/42/314847/xiaomi-14-black-thumb-600x600.jpg" alt="Xiaomi 14">
+                <h3>Xiaomi 14</h3>
+                <p class="price">18.000.000 VND</p>
+                <button class="btn-buy">Mua Ngay</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Shop Điện Thoại. All Rights Reserved.</p>
+        <p>Địa chỉ: 123 Đường ABC, Quận 1, TP.HCM | Hotline: 0909 999 999</p>
+    </footer>
+
+    <script>
+        // Hiệu ứng dropdown mượt hơn
+        document.querySelectorAll('.menu > ul > li').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                const submenu = item.querySelector('.submenu');
+                if (submenu) submenu.style.display = 'block';
+            });
+            item.addEventListener('mouseleave', () => {
+                const submenu = item.querySelector('.submenu');
+                if (submenu) submenu.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
